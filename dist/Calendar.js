@@ -420,7 +420,7 @@ const CalendarTemplate = ({
     }, /*#__PURE__*/React.createElement(IconButton, {
       onClick: createDayHandler(day),
       color: activeDay === day ? "primary" : availabilityState[year] && availabilityState[year][month] && availabilityState[year][month][day] && availabilityState[year][month][day].filter(x => x.available).length > 0 ? "secondary" : "default",
-      disabled: !day || year === Number(today.format("YYYY")) && month === today.format("MMMM") && day < Number(today.format("D")),
+      disabled: !day || year === Number(today.format("YYYY")) && month === today.format("MMMM") && day <= Number(today.format("D")),
       size: "medium",
       onMouseEnter: handleOpenPopover(`${month} ${day}, ${year}`),
       onMouseLeave: handleClosePopover

@@ -433,7 +433,7 @@ const CalendarTemplate = ({
                                   !day ||
                                   (year === Number(today.format("YYYY")) &&
                                     month === today.format("MMMM") &&
-                                    day < Number(today.format("D")))
+                                    day <= Number(today.format("D")))
                                 }
                                 size="medium"
                                 onMouseEnter={handleOpenPopover(
