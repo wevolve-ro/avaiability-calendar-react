@@ -361,7 +361,9 @@ const CalendarTemplate = ({
     const handleOpenPopover = date => {
       return e => {
         if (quickAvailability[date]) {
-          setPopoverContent(quickAvailability[date].map(time => /*#__PURE__*/React.createElement("p", null, time)));
+          setPopoverContent(quickAvailability[date].map(time => /*#__PURE__*/React.createElement("p", {
+            key: time
+          }, time)));
           setAnchorEl(e.target);
         }
       };
