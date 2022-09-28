@@ -460,8 +460,8 @@ const CalendarTemplate = ({
     }, timesFirstHalf.map((time, i) => i < times.length - 1 && /*#__PURE__*/React.createElement(TimeButton, {
       key: time.time,
       className: classes.button,
-      start: time.time,
-      end: times[i + 1].time,
+      start: formatTime(time.time, TIME_FORMAT),
+      end: formatTime(times[i + 1].time, TIME_FORMAT),
       handleClick: createTimeHandler(i),
       available: time.available
     })))), /*#__PURE__*/React.createElement(Grid, {
@@ -477,8 +477,8 @@ const CalendarTemplate = ({
       return adjustedIdx < times.length - 1 && /*#__PURE__*/React.createElement(TimeButton, {
         key: time.time,
         className: classes.button,
-        start: time.time,
-        end: times[adjustedIdx + 1].time,
+        start: formatTime(time.time, TIME_FORMAT),
+        end: formatTime(times[adjustedIdx + 1].time, TIME_FORMAT),
         handleClick: createTimeHandler(adjustedIdx),
         available: time.available
       });
@@ -568,8 +568,12 @@ const CalendarTemplate = ({
   };
 };
 
+const TIME_FORMAT = "h:mm A";
+
 const strToMoment = str => {
   return moment(str, "HH:mm");
 };
+
+const formatTime = (timeStr, formatStr) => moment(timeStr, "HH:mm").format(formatStr);
 
 export default CalendarTemplate;
